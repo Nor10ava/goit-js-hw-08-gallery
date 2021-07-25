@@ -66,7 +66,7 @@ const galleryItems = [
 
 const galleryRef = document.querySelector('.js-gallery');
 const cardsMarkup = createGalleryMarkup(galleryItems);
-const lightboxImage = document.querySelector('.lightbox');
+const lightboxImage = document.querySelector('img.lightbox__image');
 const lightbox = document.querySelector('.lightbox');
 const closeButton = document.querySelector('.button[data-action="close-lightbox"]');
 
