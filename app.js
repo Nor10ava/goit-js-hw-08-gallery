@@ -63,3 +63,44 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+const galleryRef = document.querySelector('.js-gallery');
+
+
+const cardsMarkup=createGalleryMarkup(galleryItems);
+
+galleryRef.insertAdjacentHTML('beforeend', cardsMarkup);
+galleryRef.addEventListener('click', onLightboxClick);
+
+function createGalleryMarkup(galleryItems) {
+  return galleryItems
+    .map(({ preview, original }) => {
+      return `
+  <li class="gallery__item">
+  <a
+    class="gallery__link"
+    href="${original}"
+  >
+    <img
+      class="gallery__image"
+      src="${preview}"
+      data-source="${original}"
+      alt="Tulips"
+    />
+  </a>
+</li>
+`;
+    })
+    .join('');
+}
+// const lightboxContainer = document.querySelector('.js-lightbox');
+
+// function onLightboxClick(event) {
+//   const isSwitchedImg = event.target.classList.contains('gallery__item');
+//   // if (!isSwitchedImg) {
+//   //   return;
+//   // }
+//   const switchImg = event.target;
+//   const parentLightboxCard = swatchEl.closest('.lightbox');
+//   parentLightboxCard.classList.add('is-open');
+// }
