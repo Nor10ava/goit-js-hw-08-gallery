@@ -65,16 +65,18 @@ const galleryItems = [
 ];
 
 const galleryRef = document.querySelector('.js-gallery');
+const cardsMarkup = createGalleryMarkup(galleryItems);
+const lightboxImage = document.querySelector('.lightbox');
+const lightbox = document.querySelector('.lightbox');
+const closeButton = document.querySelector('.button[data-action="close-lightbox"]');
 
-
-const cardsMarkup=createGalleryMarkup(galleryItems);
 
 galleryRef.insertAdjacentHTML('beforeend', cardsMarkup);
 galleryRef.addEventListener('click', onLightboxClick);
 
 function createGalleryMarkup(galleryItems) {
   return galleryItems
-    .map(({ preview, original }) => {
+    .map(({ preview, original,description }) => {
       return `
   <li class="gallery__item">
   <a
@@ -85,7 +87,7 @@ function createGalleryMarkup(galleryItems) {
       class="gallery__image"
       src="${preview}"
       data-source="${original}"
-      alt="Tulips"
+      alt="${description}"
     />
   </a>
 </li>
@@ -95,12 +97,16 @@ function createGalleryMarkup(galleryItems) {
 }
 // const lightboxContainer = document.querySelector('.js-lightbox');
 
-// function onLightboxClick(event) {
+function openModal(event) {
+  event.preventDefault();
+
+
+
+
+
 //   const isSwitchedImg = event.target.classList.contains('gallery__item');
-//   // if (!isSwitchedImg) {
-//   //   return;
-//   // }
+//   
 //   const switchImg = event.target;
 //   const parentLightboxCard = swatchEl.closest('.lightbox');
 //   parentLightboxCard.classList.add('is-open');
-// }
+ }
