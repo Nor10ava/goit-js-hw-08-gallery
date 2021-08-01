@@ -118,7 +118,7 @@ function closeByEscape(e) {
     return;
   }
   closeModal(e);
-  console.log("hello");
+  // console.log("hello");
 }
 function changeByArrows(e) {
   if (e.key === "ArrowRight" && activeIndex < galleryItems.length - 1) {
