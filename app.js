@@ -67,7 +67,7 @@ const galleryItems = [
 const galleryRef = document.querySelector('.js-gallery');
 const cardsMarkup = createGalleryMarkup(galleryItems);
 const lightboxImage = document.querySelector('img.lightbox__image');
-const lightbox = document.querySelector('.lightbox');
+const lightbox = document.querySelector('div.lightbox');
 const closeButton = document.querySelector('.button[data-action="close-lightbox"]');
 
 
@@ -95,18 +95,15 @@ function createGalleryMarkup(galleryItems) {
     })
     .join('');
 }
-// const lightboxContainer = document.querySelector('.js-lightbox');
+
 
 function openModal(event) {
   event.preventDefault();
-
-
-
-
-
-//   const isSwitchedImg = event.target.classList.contains('gallery__item');
-//   
-//   const switchImg = event.target;
-//   const parentLightboxCard = swatchEl.closest('.lightbox');
-//   parentLightboxCard.classList.add('is-open');
- }
+  lightbox.classList.add("is-open");
+}
+function closeModal() {
+  lightbox.classList.remove("is-open");
+}
+ 
+closeButton.addEventListener('click', closeModal);
+galleryRef.addEventListener('click', openModal);
